@@ -1,4 +1,6 @@
-module com.wwc.cleancode.tdd.tictactoe.api {
-	uses com.wwc.cleancode.tdd.tictactoe.api.TicTacToeGameFactory;
-	exports com.wwc.cleancode.tdd.tictactoe.api;
+import com.wwc.cleancode.bdd.tictactoe.jpms.api.TicTacToeGameFactory;
+
+module com.wwc.cleancode.bdd.tictactoe.jpms.api {
+	uses TicTacToeGameFactory;
+	exports com.wwc.cleancode.bdd.tictactoe.jpms.api;
 }

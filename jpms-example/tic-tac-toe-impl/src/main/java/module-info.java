@@ -1,5 +1,7 @@
-module com.wwc.cleancode.tdd.tictactoe.impl {
-	requires com.wwc.cleancode.tdd.tictactoe.api;
+import com.wwc.cleancode.bdd.tictactoe.jpms.api.TicTacToeGameFactory;
 
-	provides com.wwc.cleancode.tdd.tictactoe.api.TicTacToeGameFactory with com.wwc.cleancode.tdd.tictactoe.impl.TicTacToeGameFactoryImpl;
+module com.wwc.cleancode.bdd.tictactoe.jpms.impl {
+	requires com.wwc.cleancode.bdd.tictactoe.jpms.api;
+
+	provides TicTacToeGameFactory with com.wwc.cleancode.bdd.tictactoe.jpms.impl.TicTacToeGameFactoryImpl;
 }
