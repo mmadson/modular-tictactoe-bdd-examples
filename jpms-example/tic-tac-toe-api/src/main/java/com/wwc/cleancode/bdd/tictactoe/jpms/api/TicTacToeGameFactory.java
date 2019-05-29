@@ -4,9 +4,7 @@ import java.util.ServiceLoader;
 
 public interface TicTacToeGameFactory {
 
-	static TicTacToeGameFactory create() throws NoImplementationFoundException {
-		return ServiceLoader.load(TicTacToeGameFactory.class).findFirst().orElseThrow(NoImplementationFoundException::new);
-	}
+	TicTacToeGameFactory INSTANCE = ServiceLoader.load(TicTacToeGameFactory.class).findFirst().orElse(null);
 
-	TicTacToeGame newGame();
+	TicTacToeGameBuilder createNewGame();
 }
