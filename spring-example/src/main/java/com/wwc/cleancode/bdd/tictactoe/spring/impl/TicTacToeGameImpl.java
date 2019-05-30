@@ -8,6 +8,8 @@ import com.wwc.cleancode.bdd.tictactoe.spring.ports.TicTacToeAi;
 
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.wwc.cleancode.bdd.tictactoe.spring.GameResult.AI_WINS;
@@ -35,7 +37,9 @@ final class TicTacToeGameImpl implements TicTacToeGame {
 		this.playersMark = playersMark;
 		this.aiMark = (playersMark == Mark.X) ? Mark.O : Mark.X;
 		this.ai = ai;
-		markAiMove();
+		if (aiMark == Mark.X) {
+			markAiMove();
+		}
 	}
 
 	@Override
@@ -64,9 +68,26 @@ final class TicTacToeGameImpl implements TicTacToeGame {
 	}
 
 	private boolean hasWon(final Mark player) {
-		return Stream.of(Stream.of(TOP_LEFT, TOP_CENTER, TOP_RIGHT), Stream.of(MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT), Stream.of(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT),
-				Stream.of(TOP_LEFT, MIDDLE_LEFT, BOTTOM_LEFT), Stream.of(TOP_CENTER, MIDDLE_CENTER, BOTTOM_CENTER), Stream.of(TOP_RIGHT, MIDDLE_RIGHT, BOTTOM_RIGHT),
-				Stream.of(TOP_LEFT, MIDDLE_CENTER, BOTTOM_RIGHT), Stream.of(BOTTOM_LEFT, MIDDLE_CENTER, TOP_RIGHT))
-				.anyMatch(winningCombo -> winningCombo.allMatch(square -> board.get(square) == player));
+		return Stream.of(
+				Stream.of(TOP_LEFT, TOP_CENTER, TOP_RIGHT),
+				Stream.of(MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT),
+				Stream.of(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT),
+
+				Stream.of(TOP_LEFT, MIDDLE_LEFT, BOTTOM_LEFT),
+				Stream.of(TOP_CENTER, MIDDLE_CENTER, BOTTOM_CENTER),
+				Stream.of(TOP_RIGHT, MIDDLE_RIGHT, BOTTOM_RIGHT),
+
+				Stream.of(TOP_LEFT, MIDDLE_CENTER, BOTTOM_RIGHT),
+				Stream.of(BOTTOM_LEFT, MIDDLE_CENTER, TOP_RIGHT)
+		).anyMatch(winningCombo -> winningCombo.allMatch(square -> board.get(square) == player));
+	}
+
+	@Override
+	public String toString() {
+		return Stream.of(
+				Stream.of(TOP_LEFT, TOP_CENTER, TOP_RIGHT).map(square -> Optional.ofNullable(board.get(square)).map(Mark::name).orElse("-")).collect(Collectors.joining(" ")),
+				Stream.of(MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT).map(square -> Optional.ofNullable(board.get(square)).map(Mark::name).orElse("-")).collect(Collectors.joining(" ")),
+				Stream.of(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT).map(square -> Optional.ofNullable(board.get(square)).map(Mark::name).orElse("-")).collect(Collectors.joining(" "))
+		).collect(Collectors.joining(System.lineSeparator()));
 	}
 }

@@ -34,7 +34,7 @@ public class TicTacToeUnitTests extends SpringRuleScenarioTest<GivenStage, WhenS
 
 	@EnableJGiven
 	@ComponentScan(basePackages = { "com.wwc.cleancode.bdd.tictactoe.spring.impl",
-			"com.wwc.examples.tictactoebdd.tests"
+			"com.wwc.cleancode.bdd.tictactoe.spring.tests"
 	})
 	public static final class Config {
 

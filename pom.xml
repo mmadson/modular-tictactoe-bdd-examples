@@ -15,7 +15,7 @@
 
     <modules>
         <module>jpms-example</module>
-<!--        <module>serviceloader-example</module>-->
         <module>spring-example</module>
+        <module>service-loader-example</module>
     </modules>
 </project>
