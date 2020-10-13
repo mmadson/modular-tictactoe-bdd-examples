@@ -3,34 +3,38 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.matthewmadson.tictactoe</groupId>
+        <artifactId>modular-tictactoe-bdd-examples</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.matthewmadson.tictactoe.serviceloader</groupId>
+    <artifactId>service-loader-example</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>service-loader-example::root-pom</name>
+
+    <properties>
+        <junit.version>5.4.2</junit.version>
+    </properties>
+    
     <modules>
         <module>api</module>
         <module>impl</module>
         <module>tests</module>
     </modules>
-    <properties>
-        <junit.version>5.4.2</junit.version>
-    </properties>
-    <parent>
-        <groupId>com.wwc.cleancode.bdd.tictactoe</groupId>
-        <artifactId>modular-tictactoe-bdd-examples</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
-
-    <groupId>com.wwc.cleancode.bdd.tictactoe.serviceloader</groupId>
-    <artifactId>service-loader-example</artifactId>
-    <packaging>pom</packaging>
-
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.wwc.cleancode.bdd.tictactoe.serviceloader</groupId>
+                <groupId>com.matthewmadson.tictactoe.serviceloader</groupId>
                 <artifactId>api</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
 
             <dependency>
-                <groupId>com.wwc.cleancode.bdd.tictactoe.serviceloader</groupId>
+                <groupId>com.matthewmadson.tictactoe.serviceloader</groupId>
                 <artifactId>impl</artifactId>
                 <version>${project.version}</version>
             </dependency>

@@ -1,9 +1,10 @@
-import com.wwc.cleancode.bdd.tictactoe.jpms.api.TicTacToeGameFactory;
-import com.wwc.cleancode.bdd.tictactoe.jpms.api.ports.TicTacToeAi;
+import com.matthewmadson.tictactoe.jpms.api.TicTacToeGameFactory;
+import com.matthewmadson.tictactoe.jpms.api.ports.TicTacToeAi;
+import com.matthewmadson.tictactoe.jpms.impl.TicTacToeGameFactoryImpl;
 
-module com.wwc.cleancode.bdd.tictactoe.jpms.impl {
-	requires com.wwc.cleancode.bdd.tictactoe.jpms.api;
+module com.matthewmadson.tictactoe.jpms.impl {
+	requires com.matthewmadson.tictactoe.jpms.api;
 
 	uses TicTacToeAi;
-	provides TicTacToeGameFactory with com.wwc.cleancode.bdd.tictactoe.jpms.impl.TicTacToeGameFactoryImpl;
+	provides TicTacToeGameFactory with TicTacToeGameFactoryImpl;
 }

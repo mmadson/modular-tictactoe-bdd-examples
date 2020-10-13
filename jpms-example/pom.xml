@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.wwc.cleancode.bdd.tictactoe</groupId>
+        <groupId>com.matthewmadson.tictactoe</groupId>
         <artifactId>modular-tictactoe-bdd-examples</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.wwc.cleancode.bdd.tictactoe.jpms</groupId>
+    <groupId>com.matthewmadson.tictactoe.jpms</groupId>
     <artifactId>jpms-example</artifactId>
+    <name>jpms-example::root-pom</name>
     <packaging>pom</packaging>
 
     <modules>
@@ -23,12 +24,12 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.wwc.cleancode.bdd.tictactoe.jpms</groupId>
+                <groupId>com.matthewmadson.tictactoe.jpms</groupId>
                 <artifactId>tic-tac-toe-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.wwc.cleancode.bdd.tictactoe.jpms</groupId>
+                <groupId>com.matthewmadson.tictactoe.jpms</groupId>
                 <artifactId>tic-tac-toe-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
